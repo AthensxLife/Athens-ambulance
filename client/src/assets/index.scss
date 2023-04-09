@@ -1,0 +1,156 @@
+@import"https://kit-pro.fontawesome.com/releases/v6.2.1/css/pro.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Orbitron', 'Kanit', sans-serif;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    transition: .2s all ease;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+$main_color : rgb(0, 0, 0);
+$main_server : rgb(243, 202, 32);
+
+body {
+    overflow: hidden;
+    background: url('https://media.discordapp.net/attachments/1042413869269778503/1093546757826301982/image.png');
+    // background-position: center;
+    background-size: cover;
+}
+
+.app_init {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: darken($main_server, 10%);
+    .app_body {
+        position: relative;
+        width: 45vw;
+        height: 50vh;
+        background-color: transparentize($main_color, 0.5);
+        border-radius: 3vmin;
+        padding: 2vmin;
+        
+        .Header {
+            position: absolute;
+            padding: 1.2vmin;
+            background-color: $main_server;
+            font-weight: 500;
+            z-index: 999;
+            right: 0%;
+            top: -4%;
+            border-radius: 1vmin 0 0 1vmin;
+        }
+
+        .GetStarted {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            gap: 1vmin;
+            &-GG {
+                flex: 1;
+                backdrop-filter: blur(5px);
+                background-color: transparentize($main_color, .5);
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 1vmin;
+                overflow: hidden;
+                color: #fff;
+                border-radius: 3vmin;
+
+                &-icon {
+                    position: absolute;
+                    bottom: -11%;
+                    font-size: 10vw;
+                    right: -11%;
+                    opacity: .5;
+                }
+
+                &-Content {
+                    font-size: 2.5vw;
+                }
+
+                &:hover {
+                    flex: 2 !important;
+                    .GetStarted-GG-Content {
+                        // font-size: 50vw;
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+
+        .Medic {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+
+            &-Content {
+                border-radius: 2vmin;
+                // background-color: red;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                background-color: transparentize($main_color, .5);
+                backdrop-filter: blur(5px);
+                padding: 1.5vmin;
+                width: 25vw;
+                height: 25vh;
+                gap: 1vmin;
+
+                h2 {
+                    font-size: 3.5vmin;
+                }
+
+                select {
+                    width: 100%;
+                    padding: 1vmin;
+                    border: .2vmin solid $main_server;
+                    border-radius: 1vmin;
+                    color: #fff;
+                    font-size: 1.8vmin;
+                    background-color: transparentize($main_color, .5);
+                    &:focus {
+                        border: .2vmin solid $main_server;
+                        box-shadow: 1px 1px 10px 1px $main_server;
+                    }
+                }
+
+                .flex {
+                    display: flex;
+                    position: relative;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1.2vmin;
+                }
+
+                .action-btn {
+                    padding: .8vmin;
+                    border-radius: 1vmin;
+                    cursor: pointer;
+                    border: .2vmin solid $main_server;
+                    &.sub {
+                        background-color: transparentize($main_server, 0);
+                    }
+                    &:hover {
+                        box-shadow: 1px 1px 10px 1px $main_server;
+                    }
+                }
+            }
+        }
+    }
+}
