@@ -4,50 +4,56 @@ import { setoptionBill, setpage } from "../reducer/appSlice";
 
 const Medic = () => {
 
-    const dispatch = useDispatch();
-    const app = useSelector(state => state.app);
-    const Option = [
+    const menumedic = [
         {
-            name : "ตกจากที่สูง",
-            price : 300
+            icon: <i class="fa-solid fa-notes-medical"></i>,
+            name : 'ฟื้นฝูชีวิต',
+            event : ''
         },
         {
-            name : "รถชน",
-            price : 400
+            icon: <i class="fa-sharp fa-light fa-capsules"></i>,
+            name : 'รักษาบาดแผลเล็กๆ',
+            event : ''
+        },
+        {
+            icon: <i class="fa-sharp fa-light fa-capsules"></i>,
+            name : 'รักษาบาดแผลสาหัส',
+            event : ''
+        },
+        {
+            icon: <i class="fa-solid fa-notes-medical"></i>,
+            name : 'ใส่ในเข้าไปในรถ',
+            event : ''
+        },
+        {
+            icon: <i class="fa-solid fa-notes-medical"></i>,
+            name : 'ฟื้นฝูชีวิต',
+            event : ''
+        },
+        {
+            icon: <i class="fa-solid fa-notes-medical"></i>,
+            name : 'ฟื้นฝูชีวิต',
+            event : ''
         },
     ]
-
-    const handleSubmit = () => {
-        console.log(app.optionBill)
-    }
-
+    
     return (
         <>
-            <div className="Medic">
-                <div className="Medic-Content">
-                    <h2>
-                        รายการบิล
-                    </h2>
-                    <select name="" id="" onChange={(e) => dispatch(setoptionBill(e.target.value))}>
-                        <option value=''>โปรดเลือกรายการ</option>
-                        {
-                            ((!Option) ? <h1>load</h1> : Option.map((data, i) => {
-                                return (
-                                    <>
-                                        <option value={data.name}>{data.name} - ${data.price}</option>
-                                    </>
-                                )
-                            }))
-                        }
-                    </select>
-                    <div className="flex">
-                        <div className="action-btn" onClick={() => dispatch(setpage('GetStarted'))}>
-                            ย้อนกลับ
-                        </div>
-                        <div className="action-btn sub" onClick={handleSubmit}>
-                            ยืนยัน
-                        </div>
-                    </div>
+            <div className="Athens-Medic">
+                <div className="Athens-Medic-Item">
+                    sad
+                </div>
+                <div className="Athens-Medic-Item">
+                    sad
+                </div>
+                <div className="Athens-Medic-Item">
+                    sad
+                </div>
+                <div className="Athens-Medic-Item">
+                    sad
+                </div>
+                <div className="Athens-Medic-Item">
+                    sad
                 </div>
             </div>
         </>
