@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setoptionBill, setpage } from "../reducer/appSlice";
 import cogoToast from 'cogo-toast';
+import axios from "axios";
 
 const Bill = () => {
     
@@ -21,18 +22,30 @@ const Bill = () => {
     const handleSubmit = () => {
         // console.log(app.optionBill)
         cogoToast.loading("Pending ...");
-        let promise = new Promise((resolve, reject) => {
-            
-            setTimeout(() => {
-                resolve('Hello');
-            }, 1000); 
-         });
+        let promise = new Promise(async (resolve, reject) => {
+            const result = Option.filter((datas) => datas.name == app.optionBill);
+            console.log(result[0].name)
+            await axios.post(`http://${app.ResourceName}/CreateBill`,
+            JSON.stringify({ title :  result[0].name, price : result[0].price})).then((cb) => {
+                if (cb) {
+                    resolve(cb)
+                    console.log(cb)
+                } else {
+                    resolve(cb)
+                    console.log(cb)
+                }
+            })
+        });
          
-         promise.then(value => {
-            cogoToast.success(`Success`);
-            dispatch(setpage('GetStarted'))
-            //  console.log(`Resolved: ${value}`);
-         });
+        promise.then(value => {
+            if (value) {
+                cogoToast.success(`Success`);
+                dispatch(setpage('GetStarted'))
+            } else {
+                cogoToast.Error(`Error`);
+                dispatch(setpage('GetStarted'))
+            }
+        });
     }
 
     return (

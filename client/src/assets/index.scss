@@ -16,7 +16,7 @@ $main_server : rgb(243, 202, 32);
 
 body {
     overflow: hidden;
-    background: url('https://media.discordapp.net/attachments/1042413869269778503/1093546757826301982/image.png');
+    // background: url('https://media.discordapp.net/attachments/1042413869269778503/1093546757826301982/image.png');
     // background-position: center;
     background-size: cover;
 }
@@ -28,6 +28,59 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
+    .Help {
+        // z-index: 999999;
+        display: flex;
+        width: 100%;
+        // background-color: transparentize($main_color, .2);
+        // backdrop-filter: blur(5px);
+        background: rgb(243,202,32);
+        background: linear-gradient(122deg, rgba(243,202,32,0) 0%, rgba(0,0,0,1) 73%);
+        position: absolute;
+        color: #fff;
+        padding: 1vmin 3vmin;
+        gap: 1vmin;
+        bottom: -10%;
+        font-size: 1.8vmin;
+        transition: .4s all ease;
+        justify-content: flex-end;
+        &.active {
+            bottom: 0 !important;
+        }
+        &-Item {
+            display: flex;
+            gap: .5vmin;
+            align-items: center;
+            &::after {
+                content: "";
+                width: .1vw;
+                margin-left: 1vmin;
+                height: 100%;
+                background-color: #fff;
+            }
+            // border-right: 1px solid;
+            
+            &-btn {
+                display: flex;
+                gap: 1vmin;
+                align-items: center;
+
+                .plus {
+                    background: transparent;
+                    font-size: .5vw;
+                }
+                span {
+                    border-radius: 1vmin;
+                    font-weight: 500;
+                    background-color: transparentize($main_server, 0.1);
+                    padding: .2vmin;
+                    font-size: 1.5vmin;
+                }
+            }
+        }
+    }
     // background-color: darken($main_server, 10%);
     .app_body {
         position: relative;
@@ -36,6 +89,12 @@ body {
         background-color: transparentize($main_color, 0.5);
         border-radius: 3vmin;
         padding: 2vmin;
+        visibility: hidden;
+        opacity: 0;
+        &.active {
+            visibility: visible;
+            opacity: 1;
+        }
         
         .Header {
             position: absolute;
@@ -46,6 +105,7 @@ body {
             right: 0%;
             top: -4%;
             border-radius: 1vmin 0 0 1vmin;
+            font-size: 1.8vmin;
         }
 
         .GetStarted {
@@ -56,7 +116,7 @@ body {
             gap: 1vmin;
             &-GG {
                 flex: 1;
-                backdrop-filter: blur(5px);
+                position: relative;
                 background-color: transparentize($main_color, .5);
                 cursor: pointer;
                 display: flex;
@@ -105,7 +165,7 @@ body {
                 justify-content: center;
                 flex-direction: column;
                 background-color: transparentize($main_color, .5);
-                backdrop-filter: blur(5px);
+                // backdrop-filter: blur(5px);
                 padding: 1.5vmin;
                 width: 25vw;
                 height: 25vh;
@@ -153,25 +213,88 @@ body {
             }
         }
 
+        .Previous {
+            position: absolute;
+            padding: 1.2vmin;
+            background-color: rgb(243, 202, 32);
+            font-weight: 500;
+            z-index: 999;
+            left: 0%;
+            top: -4%;
+            border-radius: 1vmin;
+            font-size: 1.8vmin;
+
+            &:hover {
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+
         .Athens-Medic {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(20vmin, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(24vmin, 1fr));
             grid-auto-rows: 20vh;
             grid-gap: 1vmin;
 
+            .Tips {
+                position: absolute;
+                width: auto;
+                height: auto;
+                bottom: 1vmin;
+                right: 1vmin;
+                padding: 1vmin;
+                font-size: 1.5vmin;
+                color: #fff;
+                background-color: transparentize($main_color, .3);
+                border-radius: 5vmin;
+                span {
+                    padding: .5vmin;
+                    background-color: transparentize($main_server, .3);
+                    border-radius: 1vmin;
+                }
+            }
             &-Item {
                 position: relative;
                 padding: 1vmin;
-                backdrop-filter: blur(10px);
+                // backdrop-filter: blur(10px);
                 color: #fff;
                 border-radius: 2vmin;
                 background-color: transparentize($main_color, 0.5);
-                
+                display: flex;
+                justify-content: end;
+                align-items: end;
+                overflow: hidden;
+
+                &-Icon {
+                    position: absolute;
+                    top: 11%;
+                    font-size: 7vw;
+                    left: -2%;
+                    opacity: .2;
+                }
+
+                &-name {
+                    background-color: transparentize($main_color, 0.5);
+                    border-radius: 1vmin 0 0 1vmin;    
+                    padding: 1.2vmin 2vmin;
+                    right: 0;
+                    position: absolute;
+                    font-size: 1.8vmin;
+                }
                 &:hover {
                     border: .2vmin solid $main_server;
                     cursor: pointer;
+                    .Athens-Medic-Item-Icon {
+                        position: absolute;
+                        opacity: .7 !important;
+                        top: 7%;
+                        font-size: 7vw;
+                        left: 7%;
+                        opacity: .2;
+                    }
                 }
             }
         }
+
     }
 }
